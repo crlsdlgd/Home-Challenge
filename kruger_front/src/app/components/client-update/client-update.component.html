@@ -1,0 +1,36 @@
+<div class="container">
+  <h2>Actualizar Información</h2>
+  <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input id="name" formControlName="firstName" class="form-control" [(ngModel)]="userInfo.firstName"/>
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Apellido</label>
+      <input id="lastName" formControlName="lastName" class="form-control" [(ngModel)]="userInfo.lastName"/>
+    </div>
+
+    <div class="form-group">
+      <label for="cedula">Cédula</label>
+      <input id="cedula" formControlName="cedula" class="form-control" [(ngModel)]="userInfo.cedula"/>
+    </div>
+
+    <div class="form-group ">
+      <label for="location">Ubicación</label>
+      <div id="location" class="mx-auto">
+        <google-map [options]="options" class="google-map">
+          <map-marker [position]="markerPosition" [options]="markerOptions" (mapDragend)="onMarkerDragEnd($event)"></map-marker>
+        </google-map>
+        <p>Arrastre el marcador a su localizacion</p>
+      </div>
+    </div>
+
+    <div class="button-container">
+      <button type="submit" class="btn btn-primary" [disabled]="updateForm.invalid">Actualizar</button>
+    </div>
+  </form>
+  <div>
+    <button class="btn btn-outline-success" >Consultar horario de corte</button>
+  </div>
+</div>

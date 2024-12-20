@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Crear Horario de Corte</h2>
+  <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="sectorName">Nombre del Sector</label>
+      <input id="sectorName" formControlName="sectorName" class="form-control"/>
+    </div>
+
+    <div class="form-group">
+      <label for="startHour">Hora de Inicio</label>
+      <input id="startHour" formControlName="startHour" class="form-control" type="number" min="0" max="23"/>
+    </div>
+
+    <div class="form-group">
+      <label for="endHour">Hora de Fin</label>
+      <input id="endHour" formControlName="endHour" class="form-control" type="number" min="0" max="23"/>
+    </div>
+
+    <div class="form-group ">
+      <label for="polygonSector">Poligono de Coordenadas del Sector</label>
+      <div id="polygonSector" class="mx-auto">
+        <google-map [options]="options" class="google-map">
+
+        </google-map>
+      </div>
+    </div>
+
+    <div class="button-container">
+      <button type="submit" class="btn btn-primary" [disabled]="updateForm.invalid">Crear Horario</button>
+    </div>
+  </form>
+</div>

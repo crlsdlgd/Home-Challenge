@@ -1,0 +1,10 @@
+<div *ngIf="user; else noData">
+  <h2>Usuario</h2>
+  <p>ID: {{ user.id }}</p>
+  <p>Nombre: {{ user.firstName }} {{ user.lastName }}</p>
+  <p>Correo: {{ user.email }}</p>
+  <p>Rol: {{ user.role }}</p>
+</div>
+<ng-template #noData>
+  <p>No hay datos para mostrar.</p>
+</ng-template>
